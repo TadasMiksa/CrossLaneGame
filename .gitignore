@@ -1,0 +1,4 @@
+*.exe
+CrossLaneGame/obj/
+.vs/CrossLaneGame/v15/
+CrossLaneGame/bin/Debug/
