@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrossLaneGame.GameModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,21 +9,25 @@ namespace CrossLaneGame.GUI
 {
     class HeroForm 
     {
-        
-        private char _renderChar;
-        private int _x;
-        private int _y;
-        public HeroForm (int x,int y,char renderChar)
+        private readonly Hero _hero;
+
+        public HeroForm (Hero hero,char renderChar)
         {
-            _x = x;
-            _y = y;
-            _renderChar = renderChar;
+            _hero = hero;
+            RenderChar = renderChar;
         }
-        
-        public void Render()
-        {
-            Console.SetCursorPosition(_x,_y);
-            Console.Write(_renderChar);
-        }
+        public char RenderChar { get; }
+
+        public int XPosition => _hero.X;
+
+        public int YPosition => _hero.Y;
+
+        public void MoveUp(int points) => _hero.MoveUp(points);
+
+        public void MoveDown(int points) => _hero.MoveDown(points);
+
+        public void MoveLeft() => _hero.MoveLeft();
+
+        public void MoveRight() => _hero.MoveRight();
     }
 }

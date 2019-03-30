@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataObjects\Direction.cs" />
+    <Compile Include="DataObjects\Limits.cs" />
+    <Compile Include="DataObjects\Position.cs" />
+    <Compile Include="GameController\Cars.cs" />
     <Compile Include="GameModel\GameData.cs" />
     <Compile Include="GameController\GamePlayController.cs" />
     <Compile Include="GUI\Button.cs" />

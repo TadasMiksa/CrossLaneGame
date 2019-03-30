@@ -15,17 +15,16 @@ namespace CrossLaneGame.GUI
         public CarForm(Car car, char renderChar = 'O')
         {
             _carData = car;
-            _renderChar = renderChar;
+            RenderChar = renderChar;
         }
+        public char RenderChar { get; set; }
 
-        public void Render()
-        {
-            for (int i = 0; i < _carData.GetCarLenght(); i++)
-            {
-                Console.Write(_renderChar);
-            }
-        }
+        public int XPosition => _carData.X;
 
-   
+        public int YPosition => _carData.Y;
+
+        public int CarLenght => _carData.Width;
+
+
     }
 }

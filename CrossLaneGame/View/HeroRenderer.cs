@@ -10,16 +10,15 @@ namespace CrossLaneGame.View
 {
     class HeroRenderer //hero rendering
     {
-        private Hero _hero;
         private HeroForm _heroForm;
-        public HeroRenderer(Hero hero)
+        public HeroRenderer(HeroForm heroForm)
         {
-            _hero = hero;
+            _heroForm = heroForm;
         }
         public void RenderHero()
         {
-            _heroForm = new HeroForm(_hero.GetX(),_hero.GetY(), '@');
-            _heroForm.Render();
+            Console.SetCursorPosition(_heroForm.XPosition, _heroForm.YPosition);
+            Console.Write(_heroForm.RenderChar);
         }
     }
 }

@@ -16,16 +16,19 @@ namespace CrossLaneGame.View
         private List<Car> _listOfCars = new List<Car>();
         public CarRenderer(int laneNr, List<Car> listOfCars)
         {
-          
            _laneNr = laneNr;
             _listOfCars = listOfCars;
             _carForm = new CarForm(_listOfCars[laneNr]);
         }
 
-        public void RenderCar() //car renderer
+        public void Render()
         {
-            _carForm.Render();
-
+            for (int i = 0; i < _carForm.CarLenght; i++)
+            {
+                Console.Write(_carForm.RenderChar);
+            }
         }
+
+
     }
 }

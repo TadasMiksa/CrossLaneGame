@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CrossLaneGame.DataObjects;
+using CrossLaneGame.GameController;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,19 +8,25 @@ using System.Threading.Tasks;
 
 namespace CrossLaneGame.GameModel
 {
-    class Lane //car list<>, int levelNR
+    class Lane 
     {
-        private int _levelNr;
-        private Car car;
-        private List<Car> _listOfCars = new List<Car>();
-        public Lane(int levelNr)
+        private int _levelNumber;
+        private Cars _cars;
+        private Direction _direction;
+
+        public Lane(int levelNumber, Cars cars,Direction direction)
         {
-            _levelNr = levelNr;
-            _listOfCars.Add(new Car(1,0,0));
+            _levelNumber = levelNumber;
+            _cars = cars;
+            _direction = direction;    
+        }
+        public void MoveCars()
+        {
+            _cars.MoveCars(_direction);
         }
         public int ShowLevelNumber()
         {
-            return _levelNr;
+            return _levelNumber;
         }
     }
 }

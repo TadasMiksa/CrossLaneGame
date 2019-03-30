@@ -23,7 +23,7 @@ class GamePlayController
     {
      
         Random rnd = new Random();
-        _gps = new GamePlayScreen(0, 0, 39, 10, '#');
+        _gps = new GamePlayScreen(0, 0, 40, 10, '#');
 
     }
 
@@ -35,7 +35,7 @@ class GamePlayController
         {
             Console.Clear();
 
-            _gps.MoveEnemyCarToLeft();
+          
 
             while (Console.KeyAvailable)
             {

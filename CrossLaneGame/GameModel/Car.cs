@@ -1,4 +1,5 @@
-﻿using CrossLaneGame.GUI;
+﻿using CrossLaneGame.DataObjects;
+using CrossLaneGame.GUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,41 +10,40 @@ namespace CrossLaneGame.GameModel
 {
     class Car //Enemy data (speed,x,id)
     {
+        
         private Random rnd = new Random();
         private int _speed;
-        private int _x;
-        private int _y;
-        private int _width; //cars lenght
 
-        public Car(int speed, int x, int y, int width = 4)
+        public Car(Position position,  int speed, int width = 4)
         {
             _speed = speed;
-            _x = x;
-            _y = y;
-            _width = width;
-        }
-        public int GetCarLenght()
-        {
-            return _width;
-        }
-        public int GetX()
-        {
-            return _x;
-        }
-        public int GetY()
-        {
-            return _y;
+            Position = position;
+            Width = width;
         }
 
-        public void MoveCarRight()
-        {
-            _x++;
-        }
-        public void MoveCarLeft()
-        {
-            _x--;
+        public Position Position { get; private set; }
 
+        public int Width { get; } //get car lenght
+
+        public void Move(Direction direction)
+        {
+            if (Position.XPosition == Limits.XMinLimit)
+            {
+                Position.XPosition = Limits.XMaxLimit;
+            }
+            else
+            {
+                if (direction == Direction.Left)
+                {
+                    Position.XPosition--;
+                }
+                else if (direction == Direction.Right)
+                {
+                    Position.XPosition++;
+                }
+            }
         }
+
         public float ChangeSpeed(int giveSpeed) //???
         {
             float tempSpeed = giveSpeed / rnd.Next(1, 3);
