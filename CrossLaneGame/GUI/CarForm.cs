@@ -19,9 +19,9 @@ namespace CrossLaneGame.GUI
         }
         public char RenderChar { get; set; }
 
-        public int XPosition => _carData.X;
+        public int XPosition => _carData.Position.XPosition;
 
-        public int YPosition => _carData.Y;
+        public int YPosition => _carData.Position.YPosition;
 
         public int CarLenght => _carData.Width;
 

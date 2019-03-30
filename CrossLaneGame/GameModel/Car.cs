@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace CrossLaneGame.GameModel
 {
-    class Car //Enemy data (speed,x,id)
+    class Car //Enemy data 
     {
-        
         private Random rnd = new Random();
         private int _speed;
 

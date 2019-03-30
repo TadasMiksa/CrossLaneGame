@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CrossLaneGame.GameController
 {
-    class Lanes // put cars on lanes, after input - put hero on lane
+    class Lanes // sito galimai nereikia
     {
         private Car _car;      
         private List<List<Car>> _laneOfCars = new List<List<Car>>();

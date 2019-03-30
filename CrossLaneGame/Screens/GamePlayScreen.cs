@@ -1,4 +1,5 @@
-﻿using CrossLaneGame.GameController;
+﻿using CrossLaneGame.DataObjects;
+using CrossLaneGame.GameController;
 using CrossLaneGame.GameModel;
 using CrossLaneGame.GUI;
 using CrossLaneGame.View;
@@ -16,51 +17,27 @@ namespace CrossLaneGame.Screens
         private int _heroStartingYPosition = 9;
 
         private Frame _frame;
-
-        private HeroRenderer _showHero;
+        private Position _startingPosition;
         private LaneRenderer _showLanes;
-        private CarRenderer _showCars;
-
-        private Lanes _lanesOfCars;
-
         private Hero _hero;
-        private Car _car;
-
-        private List<Car> _someCars = new List<Car>();
+        private HeroForm _heroForm;
+        private HeroRenderer _heroRenderer;
 
         public GamePlayScreen(int x, int y, int width, int height, char renderChar)
         {
             _frame = new Frame(x, y, width, height, renderChar);
-
-            _hero = new Hero(_heroStartingXPosition,_heroStartingYPosition);
-
-         
-
-          
+            _hero = new Hero(_startingPosition = new Position(_heroStartingXPosition, _heroStartingYPosition));
+            _heroForm = new HeroForm(_hero, '@');
+            _heroRenderer = new HeroRenderer(_heroForm);
             _showLanes = new LaneRenderer();
-   
-           
-            _lanesOfCars = new Lanes(_car);
-            
         }
 
-        public int HeroCoordinatesX => _hero.X;
-        public int HeroCoordinatesY => _hero.Y;
-
-    //    public void MoveEnemyCarToLeft()
-    //    {
-    //        foreach (Car _enemyCar in _someCars)
-    //        {
-    //            if (_enemyCar.GetX() > 1)
-    //            {    
-    //                _enemyCar.MoveCarLeft();               
-    //            }
-    //        }
-    //    }
+        public int HeroCoordinatesX => _hero.Position.XPosition;
+        public int HeroCoordinatesY => _hero.Position.YPosition;
 
         public void MoveHeroLeft()
         {
-            if (_hero.X > 1)
+            if (HeroCoordinatesX > 1)
             {
                 _hero.MoveLeft();
             }
@@ -68,7 +45,7 @@ namespace CrossLaneGame.Screens
 
         public void MoveHeroRight()
         {
-            if (_hero.X < 38)
+            if (HeroCoordinatesX < 38)
             {
                 _hero.MoveRight();
             }
@@ -76,7 +53,7 @@ namespace CrossLaneGame.Screens
 
         public void MoveHeroUp()
         {
-            if (_hero.Y > 1)
+            if (_hero.Position.YPosition > 1)
             {
                 _hero.MoveUp(2);
             }
@@ -84,7 +61,7 @@ namespace CrossLaneGame.Screens
 
         public void MoveHeroDown()
         {
-            if (_hero.Y < 9)
+            if (_hero.Position.YPosition < 9)
             {
                 _hero.MoveDown(2);
             }
@@ -94,9 +71,7 @@ namespace CrossLaneGame.Screens
         {
             _showLanes.RenderLanes();
             _frame.Render();
-            _showHero.RenderHero();
-         //   _showCars.RenderCar();
-
+            _heroRenderer.RenderHero();
         }
     }
 }

@@ -18,9 +18,9 @@ namespace CrossLaneGame.GUI
         }
         public char RenderChar { get; }
 
-        public int XPosition => _hero.X;
+        public int XPosition => _hero.Position.XPosition;
 
-        public int YPosition => _hero.Y;
+        public int YPosition => _hero.Position.YPosition;
 
         public void MoveUp(int points) => _hero.MoveUp(points);
 
