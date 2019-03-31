@@ -6,24 +6,23 @@ using System.Threading.Tasks;
 
 namespace CrossLaneGame.Screens
 {
-    class MenuScreen : Window //menu screen
+    class MenuScreen : Window
     {
         private Button _startButton;
         private Button _quitButton;
         private TextBlock _gameTitle;
         private List<Button> _buttons = new List<Button>();
         private bool StartIsPressed = false;
-
         private bool QuitIsPressed = false;
 
         public MenuScreen() : base(0, 0, 40, 10, '*', "CROSS LANE GAME")
         {
             _gameTitle = new TextBlock(0, 2, Width - 2, "", "Simple cross road / lane game", "Press P to play", "Press Q to quit");
 
-            _buttons.Add(_startButton = new Button(5, 15, 18, 3, "PLAY", 0));
+            _buttons.Add(_startButton = new Button(2,6,7,2, " PLAY",0));
             _startButton.SetNotActive();
 
-            _buttons.Add(_quitButton = new Button(76, 15, 18, 3, "QUIT", 1));
+            _buttons.Add(_quitButton = new Button(30, 6, 7, 2, " QUIT", 1));
             _quitButton.SetNotActive();
         }
 
@@ -74,19 +73,15 @@ namespace CrossLaneGame.Screens
             }
             return null;
         }
-
-
-        public override void Render() //do while reikia
+        public override void Render()
         {
-            base.Render();
-            _gameTitle.Render();
-            foreach (Button button in _buttons)
-            {
-                button.Render();
-            }
+
+                base.Render();
+                _gameTitle.Render();
+                foreach (Button button in _buttons)
+                {
+                    button.Render();
+                }
         }
-
     }
-
-
 }

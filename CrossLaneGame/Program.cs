@@ -1,4 +1,6 @@
-﻿using CrossLaneGame.Screens;
+﻿using CrossLaneGame.GameModel;
+using CrossLaneGame.GUI;
+using CrossLaneGame.Screens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +14,11 @@ namespace CrossLaneGame
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
-            GamePlayController gpc = new GamePlayController();
-            gpc.StartGameLoop();
+            GuiController game = new GuiController();
+            game.ShowMenu();
+
             Console.ReadKey();
-            
+
         }
     }
 }

@@ -12,17 +12,18 @@ namespace CrossLaneGame.GameModel
     {
         private Random rnd = new Random();
         private int _speed;
-
-        public Car(Position position,  int speed, int width = 4)
+        private int _id;
+        public Car(Position position,  int speed,int id, int width = 4)
         {
             _speed = speed;
             Position = position;
             Width = width;
+            _id = id;
         }
 
         public Position Position { get; private set; }
 
-        public int Width { get; } //get car lenght
+        public int Width { get; private set; } //get car lenght
 
         public void Move(Direction direction)
         {

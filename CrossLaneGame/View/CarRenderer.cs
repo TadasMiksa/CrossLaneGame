@@ -10,24 +10,24 @@ namespace CrossLaneGame.View
 {
     class CarRenderer //enemy rendering
     {
-        //lane nr + list of cars
-        private CarForm _carForm;
-        private int _laneNr;
-        private List<Car> _listOfCars = new List<Car>();
-        public CarRenderer(int laneNr, List<Car> listOfCars)
+     
+        private List<CarForm> _listOfCarForms = new List<CarForm>();
+        public CarRenderer(List<CarForm> carforms)
         {
-           _laneNr = laneNr;
-            _listOfCars = listOfCars;
-            _carForm = new CarForm(_listOfCars[laneNr]);
+            _listOfCarForms = carforms;
         }
-
-
-        public void Render()
+        public void RenderCar()
         {
-            for (int i = 0; i < _carForm.CarLenght; i++)
+            foreach (CarForm item in _listOfCarForms)
             {
-                Console.Write(_carForm.RenderChar);
+                for (int i = 0; i < item.CarLenght; i++)
+                {
+                    Console.SetCursorPosition(item.XPosition + i, item.YPosition);
+                    Console.Write(item.RenderChar);
+                }
             }
+
+
         }
 
 

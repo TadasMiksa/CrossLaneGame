@@ -52,10 +52,10 @@
     <Compile Include="GUI\Button.cs" />
     <Compile Include="GUI\CarForm.cs" />
     <Compile Include="GUI\Frame.cs" />
-    <Compile Include="GameController\Lanes.cs" />
     <Compile Include="GameModel\Car.cs" />
     <Compile Include="GameModel\Hero.cs" />
     <Compile Include="GameModel\Lane.cs" />
+    <Compile Include="GUI\GuiController.cs" />
     <Compile Include="GUI\GuiObject.cs" />
     <Compile Include="GUI\HeroForm.cs" />
     <Compile Include="GUI\LaneForm.cs" />

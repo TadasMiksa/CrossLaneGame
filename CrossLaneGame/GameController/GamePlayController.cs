@@ -6,25 +6,24 @@ using CrossLaneGame.View;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Threading;
 
 class GamePlayController
 {
     private GamePlayScreen _gps;
 
-
     public GamePlayController()
     {
         Random rnd = new Random();
         _gps = new GamePlayScreen(0, 0, 39, 10, '#');
-
     }
-
     public void StartGameLoop()
     {
+        _gps.Timing();
         bool collision = false;
         do
-        {
+        { 
+            _gps.MoveAllCars();
             Console.Clear();
             while (Console.KeyAvailable)
             {
@@ -45,17 +44,17 @@ class GamePlayController
                         break;
                 }
             }
-
-            //   if (_gps.HeroCoordinatesX() >= _lanesWithCars.GetLaneCars(x) && _gps.HeroCoordinatesX() <= _lanesWithCars.GetLaneCars(x)+_car.GetCarLenght())
-            //       collision = true;
-            //   } collisionas
-
+             if (_gps.CollisionDetection() == true)
+            {
+                collision = true;
+            }
+        
             _gps.Render();
 
             System.Threading.Thread.Sleep(250);
         } while (collision == false);
 
         Console.Clear();
-        Console.WriteLine("GAME OVER");
+        _gps.GameOver();
     }
 }
