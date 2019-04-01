@@ -16,9 +16,7 @@ namespace CrossLaneGame
             Console.CursorVisible = false;
             GuiController game = new GuiController();
             game.ShowMenu();
-
             Console.ReadKey();
-
         }
     }
 }

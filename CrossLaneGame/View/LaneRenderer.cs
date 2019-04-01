@@ -10,6 +10,7 @@ namespace CrossLaneGame.View
     class LaneRenderer //lane(road)rendering
     {
         private List<LaneForm> _laneForms = new List<LaneForm>();
+
         public LaneRenderer()
         {
             for (int i = 2; i < 8; i = i + 2)
@@ -17,6 +18,7 @@ namespace CrossLaneGame.View
                 _laneForms.Add(new LaneForm(1, i, 38, 3, '-'));
             }
         }
+
         public void RenderLanes()
         {
             foreach (LaneForm item in _laneForms)

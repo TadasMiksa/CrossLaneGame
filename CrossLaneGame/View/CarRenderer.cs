@@ -10,12 +10,13 @@ namespace CrossLaneGame.View
 {
     class CarRenderer //enemy rendering
     {
-     
         private List<CarForm> _listOfCarForms = new List<CarForm>();
+
         public CarRenderer(List<CarForm> carforms)
         {
             _listOfCarForms = carforms;
         }
+
         public void RenderCar()
         {
             foreach (CarForm item in _listOfCarForms)
@@ -26,10 +27,6 @@ namespace CrossLaneGame.View
                     Console.Write(item.RenderChar);
                 }
             }
-
-
         }
-
-
     }
 }

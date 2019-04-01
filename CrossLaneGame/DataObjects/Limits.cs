@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CrossLaneGame.DataObjects
 {
-    //public static
      static class Limits
     {
-        public static int XMaxLimit => 39;
-        public static int XMinLimit => 1;
-        public static int YMaxLimit => 9;
-        public static int YMinLimit => 1;
+        //constantas ir panaikint lambda
+        public const int XMaxLimit = 39;
+        public const int XMinLimit = 1;
+        public const int YMaxLimit = 9;
+        public const int YMinLimit = 1;
     }
 }

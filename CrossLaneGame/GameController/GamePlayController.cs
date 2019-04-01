@@ -44,11 +44,12 @@ class GamePlayController
                         break;
                 }
             }
-             if (_gps.CollisionDetection() == true)
+          
+            if (_gps.CollisionDetection() == true)
             {
                 collision = true;
             }
-        
+           
             _gps.Render();
 
             System.Threading.Thread.Sleep(250);
